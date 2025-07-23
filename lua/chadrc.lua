@@ -6,9 +6,9 @@
 local M = {}
 
 M.base46 = {
-  -- theme = "one_light", -- NOTE: Default Value
-  theme = "vscode_dark",
-  theme_toggle = { "vscode_dark", "vscode_light" },
+  -- theme = "one_light",
+  theme = "tokyodark",
+  theme_toggle = { "tokyonight", "tokyodark" },
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -23,7 +23,7 @@ M.ui = {
   },
   statusline = {
     separator_style = "arrow",
-    -- theme = "vscode_colored",
+    -- theme = "minimal",
   },
 }
 

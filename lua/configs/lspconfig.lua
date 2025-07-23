@@ -1,31 +1,55 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "rust_analyzer", }
-vim.lsp.enable(servers)
+-- local on_attach = require("nvchad.configs.lspconfig").on_attach
+-- local on_init = require("nvchad.configs.lspconfig").on_init
+-- local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local dap = require('dap')
-dap.adapters.codelldb = {
-  type = 'server',
-  host = '127.0.0.1',
-  port = '${port}',
-  executable = {
-    command = 'codelldb', -- Replace with your codelldb path
-    args = { '--port', '${port}' },
-  },
+local lspconfig = require "lspconfig"
+
+-- list of all servers configured.
+lspconfig.servers = {
+    "rust_analyzer",
+    "clangd",
+    "pyright",
 }
 
-dap.configurations.rust = {
-  {
-    name = 'Launch',
-    type = 'codelldb',
-    request = 'launch',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-  },
-}
+vim.lsp.enable(lspconfig.servers)
 
-
--- read :h vim.lsp.config for changing options of lsp servers 
+-- -- list of servers configured with default config.
+-- local default_servers = { "rust_analyzer", "pyright", "clangd" }
+--
+-- -- lsps with default config
+-- for _, lsp in ipairs(default_servers) do
+--     lspconfig[lsp].setup {
+--         on_attach = on_attach,
+--         on_init = on_init,
+--         capabilities = capabilities,
+--     }
+-- end
+--
+-- lspconfig.lua_ls.setup {
+--     on_attach = on_attach,
+--     on_init = on_init,
+--     capabilities = capabilities,
+--
+--     settings = {
+--         Lua = {
+--             diagnostics = {
+--                 enable = false, -- Disable all diagnostics from lua_ls
+--                 -- globals = { "vim" },
+--             },
+--             workspace = {
+--                 library = {
+--                     vim.fn.expand "$VIMRUNTIME/lua",
+--                     vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
+--                     vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
+--                     vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+--                     "${3rd}/love2d/library",
+--                 },
+--                 maxPreload = 100000,
+--                 preloadFileSize = 10000,
+--             },
+--         },
+--     },
+-- }
+--
