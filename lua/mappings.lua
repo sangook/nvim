@@ -9,12 +9,12 @@ map("i", "jk", "<ESC>")
 
 -- Toggle transparency
 map("n", "<leader>tt", function()
-  require("base46").toggle_transparency()
+    require("base46").toggle_transparency()
 end, { desc = "Toggle transparency" })
 
 -- NOTE: Terminal toggle horizontal
 map({ "n", "t" }, "<A-f>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+    require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal toggleable horizontal term" })
 
 -- resizing splits
@@ -35,24 +35,11 @@ map({ "n", "t" }, "<leader><leader>k", require("smart-splits").swap_buf_up)
 map({ "n", "t" }, "<leader><leader>l", require("smart-splits").swap_buf_right)
 
 map("n", "]t", function()
-  require("todo-comments").jump_next()
+    require("todo-comments").jump_next()
 end, { desc = "Next todo comment" })
 map("n", "[t", function()
-  require("todo-comments").jump_prev()
+    require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
 map("n", "]e", function()
-  require("todo-comments").jump_next { keywords = { "ERROR", "WARNING" } }
+    require("todo-comments").jump_next { keywords = { "ERROR", "WARNING" } }
 end, { desc = "Next error/warning todo comment" })
-
--- TODO:
---
---
--- HACK:
--- WARN:
--- PERF:
--- NOTE:
--- TEST:
--- FIXME:
--- BUG:
--- FIXIT:
--- ISSUE:
