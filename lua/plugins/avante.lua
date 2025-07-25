@@ -1,5 +1,6 @@
 return {
     "yetone/avante.nvim",
+    lazy = true,
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     -- ⚠️ must add this setting! ! !
     build = function()

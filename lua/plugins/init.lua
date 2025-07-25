@@ -1,6 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = true,
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             require "configs.treesitter"
@@ -9,6 +10,7 @@ return {
 
     {
         "neovim/nvim-lspconfig",
+        lazy = true,
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("nvchad.configs.lspconfig").defaults()
@@ -18,6 +20,7 @@ return {
 
     {
         "williamboman/mason-lspconfig.nvim",
+        lazy = true,
         event = "VeryLazy",
         dependencies = { "nvim-lspconfig" },
         config = function()
@@ -108,6 +111,7 @@ return {
     {
         "rcarriga/nvim-dap-ui",
         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+        lazy = true,
         config = function()
             require("dapui").setup()
         end,
@@ -115,6 +119,7 @@ return {
 
     {
         "saecki/crates.nvim",
+        lazy = true,
         ft = { "toml" },
         config = function()
             require("crates").setup {
